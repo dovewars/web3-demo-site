@@ -21,12 +21,15 @@ export default function ProductGrid() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [account, setAccount] = useState<string | null>(null);
   const [web3, setWeb3] = useState<Web3 | null>(null);
+
   const openModal = (product: Product) => {
     setSelectedProduct(product);
   };
+
   const closeModal = () => {
     setSelectedProduct(null);
   };
+
   const numHex = (s: number) => {
     let a = s.toString(16);
     if (a.length % 2 > 0) {
@@ -34,6 +37,7 @@ export default function ProductGrid() {
     }
     return a;
   };
+
   const buyProduct = async (product: Product) => {
     if (!account || !web3) return;
     try {
@@ -41,13 +45,12 @@ export default function ProductGrid() {
         throw new Error("Environment variable ACCOUNT is not set.");
       }
       const priceInWei = Number(web3.utils.toWei(product.priceInETH, "ether"));
-      const stringWei = "0x" + numHex(priceInWei);
+      const stringWei = "0x" + numHex(priceInWei); // convert wei value to hex
       const transactionParameters = {
         to: process.env.ACCOUNT, // replace with your Ethereum address or contract address
         from: account,
-        value: stringWei, // convert wei value to hex
+        value: stringWei,
         chainId: 11155111, // Chain ID for Sepolia network
-        data: "0x",
       };
       console.log(transactionParameters);
       await window.ethereum.request<void>({
@@ -58,6 +61,7 @@ export default function ProductGrid() {
       console.error("Error making transaction:", error);
     }
   };
+
   useEffect(() => {
     if (window.ethereum) {
       const web3Instance = new Web3(window.ethereum);
@@ -77,6 +81,7 @@ export default function ProductGrid() {
       console.error("MetaMask is not installed!");
     }
   }, []);
+
   return (
     <div>
       <div className="grid grid-cols-[repeat(auto-fill,_minmax(200px,_1fr))] md:grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))] gap-3.5">
@@ -143,8 +148,8 @@ export default function ProductGrid() {
               </button>
               <Image
                 src={selectedProduct.imageName}
-                width={1024} // Adjust width to 50% of your target resolution
-                height={1024} // Adjust height to 50% of your target resolution
+                width={1024}
+                height={1024}
                 alt="Model"
                 className="object-contain w-full h-full"
               />

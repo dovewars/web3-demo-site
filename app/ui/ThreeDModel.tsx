@@ -3,14 +3,17 @@ import React, { useEffect, useRef } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF, useAnimations } from "@react-three/drei";
 import * as THREE from "three";
+
 interface ThreeDModelProps {
   modelUrl: string;
   onClose: () => void;
 }
+
 const Model: React.FC<{ url: string }> = ({ url }) => {
   const group = useRef<THREE.Group>(null!);
   const { scene, animations } = useGLTF(url);
   const { actions, mixer } = useAnimations(animations, group);
+
   useEffect(() => {
     if (!mixer || !actions) {
       console.error("Mixer or actions not found");
@@ -37,6 +40,7 @@ const Model: React.FC<{ url: string }> = ({ url }) => {
       console.error("No actions available to play");
     }
   }, [actions]);
+
   return <primitive object={scene} ref={group} />;
 };
 

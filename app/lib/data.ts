@@ -1,4 +1,3 @@
-// Define the interface for the objects
 export interface Product {
   imageName: string;
   id: number;
@@ -7,7 +6,7 @@ export interface Product {
   priceInETH: number;
   is3D: boolean;
 }
-// Populate the array with objects
+
 const products: Product[] = [
   {
     imageName: "/1.png",
@@ -91,5 +90,4 @@ const products: Product[] = [
     is3D: false,
   },
 ];
-// Export the array to use it in other parts of the app
 export default products;

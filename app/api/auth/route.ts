@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { serialize } from "cookie";
-// Ensure the environment variable is loaded
+
 if (!process.env.PASSWORD) {
   throw new Error("Environment variable PASSWORD is not set.");
 }
