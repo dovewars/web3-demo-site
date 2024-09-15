@@ -77,7 +77,12 @@ All transactions in this demo are conducted on the **Sepolia Test Network**. Thi
 
 ## 3D Model Support
 
-For products that include a 3D model, the application uses **Three.js** to display them in an interactive viewer. Products without a 3D model will display a standard image.
+For products that include a 3D model, the application uses **Three.js** to display them in an interactive viewer. Products without a 3D model
+will display a standard image.
+
+## Attributions
+
+The 3D Drone used is "Buster Drone" (https://skfb.ly/TBnX) by LaVADraGoN is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/). Thank you LaVADraGoN!
 
 ## License
 
