@@ -112,7 +112,7 @@ export default function ProductGrid() {
             <h3 className="text-lg font-bold text-gray-300 mx-4">
               {product.name}
             </h3>
-            <p className="text-base text-gray-300 line-clamp-2 h-12 pt-1">
+            <p className="text-base text-gray-300 line-clamp-2 h-12 pt-1 mx-3">
               {product.description}
             </p>
             <div className="flex items-center justify-center my-4">
