@@ -46,7 +46,7 @@ To get started, clone the repository and install the necessary dependencies:
 
 The application relies on two environment variables:
 
-ACCOUNT - the account to where the Sepolia ETH will be sent.
+NEXT_PUBLIC_ACCOUNT - the account to where the Sepolia ETH will be sent.
 
 PASSWORD - the secret password to allow the user into the app.
 

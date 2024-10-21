@@ -41,13 +41,13 @@ export default function ProductGrid() {
   const buyProduct = async (product: Product) => {
     if (!account || !web3) return;
     try {
-      if (!process.env.ACCOUNT) {
+      if (!process.env.NEXT_PUBLIC_ACCOUNT) {
         throw new Error("Environment variable ACCOUNT is not set.");
       }
       const priceInWei = Number(web3.utils.toWei(product.priceInETH, "ether"));
       const stringWei = "0x" + numHex(priceInWei); // convert wei value to hex
       const transactionParameters = {
-        to: process.env.ACCOUNT, // replace with your Ethereum address or contract address
+        to: process.env.NEXT_PUBLIC_ACCOUNT, // replace with your Ethereum address or contract address
         from: account,
         value: stringWei,
         chainId: 11155111, // Chain ID for Sepolia network

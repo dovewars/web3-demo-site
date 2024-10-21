@@ -12,6 +12,8 @@ interface ThreeDModelProps {
 const Model: React.FC<{ url: string }> = ({ url }) => {
   const group = useRef<THREE.Group>(null!);
   const { scene, animations } = useGLTF(url);
+  console.log(scene);
+  console.log(animations);
   const { actions, mixer } = useAnimations(animations, group);
 
   useEffect(() => {
